@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="sinch-calling-cordova-plugin"
+    version="1.0.0">
+    <name>Cordova Plugin Sinch Calling</name>
+    <description>Provides Audio and video calling features using sinch SDK.</description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo>https://github.com/parita-detroja/cordova-plugin-sinch-calling.git</repo>
+    <issue>https://github.com/parita-detroja/cordova-plugin-sinch-calling/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+
+        <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
+        <clobbers target="MyCordovaPlugin" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="MyCordovaPlugin">
+          <param name="android-package" value="com.example.MyCordovaPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/com/example/MyCordovaPlugin.java" target-dir="src/com/example/" />
+    </platform>
+
+</plugin>
