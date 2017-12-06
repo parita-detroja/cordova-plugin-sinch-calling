@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="sinch-calling-cordova-plugin"
     version="1.0.0">
-    <name>Cordova Plugin Sinch Calling</name>
+    <name>Sinch Calling</name>
     <description>Provides Audio and video calling features using sinch SDK.</description>
     <license>MIT</license>
     <keywords></keywords>
