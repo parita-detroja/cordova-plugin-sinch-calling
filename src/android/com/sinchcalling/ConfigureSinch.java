@@ -27,56 +27,67 @@ public class ConfigureSinch
      * @param context activity context for sinch client
      * @param configurationData all required keys in JSONObject
      */
-    public void initiateSinchClient(Context context, JSONObject configurationData)
+    public static JSONObject initiateSinchClient(Context context, JSONObject configurationData)
     {
+        JSONObject returnStatus = new JSONObject();
+
+        boolean state = false;
+        
         try {
-            sinchClient = Sinch.getSinchClientBuilder().context(context)
+             sinchClient = Sinch.getSinchClientBuilder().context(context)
                     .applicationKey(configurationData.getString(Constant.APPLICATION_KEY))
                     .applicationSecret(configurationData.getString(Constant.APPLICATION_SECRET))
                     .environmentHost(configurationData.getString(Constant.ENVIRONMENT_HOST))
                     .userId(configurationData.getString(Constant.USER_ID))
                     .build();
+                    
+            state = true;
+
+            returnStatus.put("status", state);
+            returnStatus.put("sinch_initiation_state","Sinch initialization successfull");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        
+        return returnStatus;
     }
 
-    public void setSupportMessaging(boolean status)
+    public static void setSupportMessaging(boolean status)
     {
         sinchClient.setSupportMessaging(status);
     }
 
-    public void setSupportCalling(boolean status)
+    public static void setSupportCalling(boolean status)
     {
         sinchClient.setSupportCalling(status);
     }
 
-    public void setSupportManagedPush(boolean status)
+    public static void setSupportManagedPush(boolean status)
     {
         sinchClient.setSupportManagedPush(status);
     }
 
-    public void setSupportActiveConnectionInBackground(boolean status)
+    public static void setSupportActiveConnectionInBackground(boolean status)
     {
         sinchClient.setSupportActiveConnectionInBackground(status);
     }
 
-    public void startListeningOnActiveConnection()
+    public static void startListeningOnActiveConnection()
     {
         sinchClient.startListeningOnActiveConnection();
     }
 
-    public void startSinchClient()
+    public static void startSinchClient()
     {
         sinchClient.start();
     }
 
-    public void stopListeningOnActiveConnection()
+    public static void stopListeningOnActiveConnection()
     {
         sinchClient.stopListeningOnActiveConnection();
     }
 
-    public void terminateSinchClient()
+    public static void terminateSinchClient()
     {
         sinchClient.terminate();
     }

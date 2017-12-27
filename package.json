@@ -1,12 +1,14 @@
 {
-  "name": "cordova-plugin-template",
+  "name": "cordova-plugin-sinch-calling",
   "version": "1.0.0",
   "cordova": {
-    "id": "cordova-plugin-template",
+    "id": "cordova-plugin-sinch-calling",
     "platforms": [
-      "android",
-      "ios",
+      "android"
     ]
   },
-  "description": "A starting point for a Cordova Plugin"
+  "module":"locationTracker.js",
+  "_location": "/cordova-plugin-location-tracking",
+  "description": "Plugin provides audio and video calling using Sinch SDK.",
+  "dependencies": {}
 }
